@@ -1,0 +1,35 @@
+[
+    {
+        "type":"label",
+        "text":"Weather",
+        "font": "Helvetica",
+        "font size":16,
+        "font colour":"white",
+        "x":10,
+        "y":0,
+        "width":0,
+        "height":0
+    },
+    {
+        "type":"label",
+        "text":"Mon",
+        "font": "Helvetica",
+        "font size":8,
+        "font colour":"white",
+        "x":10,
+        "y":50,
+        "width":0,
+        "height":0
+    },
+    {
+        "type":"label",
+        "text":"Tue",
+        "font": "Helvetica",
+        "font size":8,
+        "font colour":"white",
+        "x":10,
+        "y":100,
+        "width":0,
+        "height":0
+    }
+]
