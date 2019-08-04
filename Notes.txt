@@ -1,0 +1,1 @@
+open weather map api key: fe567241f2e7dae1e8bd917c752f84f9
