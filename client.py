@@ -1,6 +1,8 @@
 from tkinter import *
 
 class Mirror():
+    """UI for the mirror"""
+    
     def __init__(self, screenWidth = None, screenHeight = None, backgroundColour = "black"):
         self.ScreenWidth = screenWidth
         self.ScreenHeight = screenHeight
