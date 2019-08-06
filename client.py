@@ -7,6 +7,7 @@ class Mirror():
     """UI for the mirror"""
     
     UIElements:list = []
+    __Threading = True
 
     def __init__(self, screenWidth = None, screenHeight = None, backgroundColour = "black"):
         self.ScreenWidth = screenWidth
@@ -22,7 +23,7 @@ class Mirror():
         root.bind("<Escape>", self.Shutdown) #binds ESC key to shut down mirror
         root.overrideredirect(True) #remove title bar
         self.__Populate()
-        updategui = threading.Thread(target=self.__Update);
+        updategui = threading.Thread(target=self.__Update, daemon=True);
         updategui.start()
         root.mainloop()
     
@@ -57,8 +58,7 @@ class Mirror():
         file = open("clientgui.json")
         current = file.read()
         file.close()    
-        while True:
-            time.sleep(60)
+        while self.__Threading:
             file = open("clientgui.json")
             new = file.read()
             file.close()
@@ -67,11 +67,11 @@ class Mirror():
                 for i in self.UIElements:
                     i.destroy()
                 self.UIElements.clear()
-                print(self.UIElements)
                 self.__Populate()
 
     def Shutdown(self, e):
-        exit()
+        self.__Threading = False
+        self.root.destroy()
 
     
 
