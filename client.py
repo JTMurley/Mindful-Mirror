@@ -1,5 +1,7 @@
 from tkinter import *
 import json
+import threading
+import time
 
 class Mirror():
     """UI for the mirror"""
@@ -18,9 +20,10 @@ class Mirror():
         root.resizable(width = FALSE, height = FALSE)
         root.config(bg = self.BackgroundColour, cursor = "None")
         root.bind("<Escape>", self.Shutdown) #binds ESC key to shut down mirror
-        root.bind("<Return>", self.__Update) #Update widget for test purpose
-        #root.overrideredirect(True) #remove title bar
+        root.overrideredirect(True) #remove title bar
         self.__Populate()
+        updategui = threading.Thread(target=self.__Update);
+        updategui.start()
         root.mainloop()
     
     def __Populate(self):
@@ -48,14 +51,24 @@ class Mirror():
                 item.place(x = x, y = y)
                 self.UIElements.append(item)
 
-    def __Update(self, e):
+    def __Update(self):
         """Updating all the element from the JSON file"""
-        
-        for i in self.UIElements:
-            i.destroy()
-        self.UIElements.clear()
-        print(self.UIElements)
-        self.__Populate()
+
+        file = open("clientgui.json")
+        current = file.read()
+        file.close()    
+        while True:
+            time.sleep(60)
+            file = open("clientgui.json")
+            new = file.read()
+            file.close()
+            if current != new:
+                current = new
+                for i in self.UIElements:
+                    i.destroy()
+                self.UIElements.clear()
+                print(self.UIElements)
+                self.__Populate()
 
     def Shutdown(self, e):
         exit()
