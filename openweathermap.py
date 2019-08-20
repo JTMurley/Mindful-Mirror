@@ -51,10 +51,9 @@ class Weather():
         else:
             return None
 
-#Test
-'''
-APIKey = "fe567241f2e7dae1e8bd917c752f84f9"
-cityid = "2144728"
-cityname = "wantirna south"
-a = Weather(api_key=APIKey, city_id= cityid)
-'''
+if __name__ == "__main__":
+    APIKey = "fe567241f2e7dae1e8bd917c752f84f9"
+    cityid = "2144728"
+    cityname = "wantirna south"
+    a = Weather(api_key=APIKey, city_id= cityid)
+    print(a.GetWeatherByID())

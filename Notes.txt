@@ -1,3 +1,4 @@
 open weather map api key: fe567241f2e7dae1e8bd917c752f84f9
 
-Modify clientgui.json to change the GUI. The GUI updates every 60
+Modify clientgui.json to change the GUI.
+clientgui.json "image" only allows *.gif file

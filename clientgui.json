@@ -22,14 +22,23 @@
         "height":0
     },
     {
-        "type":"label",
-        "text":"Tue",
-        "font": "Helvetica",
+        "type":"button",
+		"text":"Tue",
+		"font": "Helvetica",
         "font size":8,
         "font colour":"white",
         "x":60,
         "y":50,
         "width":0,
         "height":0
-    }
+    },
+	{
+		"type":"label",
+		"image":"Test.gif",
+        "x":110,
+        "y":0,
+        "width":0,
+        "height":0
+	}
+	
 ]
