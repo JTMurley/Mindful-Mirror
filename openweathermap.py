@@ -8,12 +8,12 @@ class Weather():
     The information is presented in dict format.
     """
     
-    Data:dict = None
-    APIKey:str = None
-    CityID:str = None
-    CityName:str = None
-    CountryCode:str = None
-    def __init__(self, api_key:str = None, city_id:str = None, city_name:str = None, country_code:str = None):
+    Data = None #dict
+    APIKey = None #string
+    CityID = None #string
+    CityName = None #string
+    CountryCode = None #string
+    def __init__(self, api_key = None, city_id = None, city_name = None, country_code = None):
         self.APIKey = api_key
         self.CityID = city_id
         self.CityName = city_name
@@ -25,7 +25,7 @@ class Weather():
         if self.APIKey == None or self.CityID == None:
             return None
         else:
-            response = urlopen("https://api.openweathermap.org/data/2.5/weather?id={}&units=metric&appid={}".format(self.CityID, self.APIKey)).read()
+            response = urlopen("https://api.openweathermap.org/data/2.5/weather?id={}&units=metric&appid={}".format(self.CityID, self.APIKey)).read().decode("utf-8") 
             self.Data = json.loads(response)
             self._UpdateInformation(self.Data)
             return self.Data
@@ -36,7 +36,7 @@ class Weather():
         if self.APIKey == None or self.CityName == None:
             return None
         else:
-            response = urlopen("https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid={}".format(self.CityName, self.APIKey)).read()
+            response = urlopen("https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid={}".format(self.CityName, self.APIKey)).read().decode("utf-8") 
             self.Data = json.loads(response)
             self._UpdateInformation(self.Data)
             return self.Data
