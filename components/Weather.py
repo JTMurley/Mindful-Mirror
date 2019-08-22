@@ -1,6 +1,9 @@
 from urllib.request import urlopen
 import json
 
+if __name__ != "__main__":
+    from components.Standard import Standard
+
 class Weather():
     """Obtain current weather information
 
@@ -50,6 +53,17 @@ class Weather():
             self.CountryCode = data["sys"]["country"]
         else:
             return None
+
+    def Run(self):
+        """Run function for the mirror"""
+        self.APIKey = "fe567241f2e7dae1e8bd917c752f84f9"
+        self.CityID = "2144728"
+        self.CityName = "wantirna south"
+        self.GetWeatherByID()
+        standard = Standard()
+        standard.UpdateTextByTag("weathercurrenttemp", str(self.Data["main"]["temp"])+"°C")
+        standard.UpdateTextByTag("weatherlocation", str(self.Data["name"]))
+        standard.Commit()
 
 if __name__ == "__main__":
     APIKey = "fe567241f2e7dae1e8bd917c752f84f9"

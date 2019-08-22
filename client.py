@@ -3,12 +3,14 @@ import json
 import threading
 import time
 import sys
+import os
 
 class Mirror():
     """UI for the mirror"""
 
     UIElements = [] #list
     __Threading = True
+    __ThreadList = [] #list
 
     def __init__(self, screenWidth = None, screenHeight = None, backgroundColour = "black"):
         self.ScreenWidth = screenWidth #int
@@ -25,8 +27,10 @@ class Mirror():
         root.bind("<Escape>", self.Shutdown) #binds ESC key to shut down mirror
         root.overrideredirect(True) #remove title bar
         self.__Populate()
-        updategui = threading.Thread(target=self.__Update, daemon=True);
-        updategui.start()
+        self.__ThreadList.append(threading.Thread(target=self.__UpdateGUI, daemon=True))
+        self.__ThreadList.append(threading.Thread(target=self.__Update, daemon=True))
+        for i in self.__ThreadList:
+            i.start()
         root.mainloop()
     
     def __Populate(self):
@@ -68,28 +72,43 @@ class Mirror():
             item.place(x = x, y = y)
             self.UIElements.append(item)
 
-    def __Update(self):
-        """Updating all the element from the JSON file"""
+    def __UpdateGUI(self):
+        """Check if there are any change in the JSON file and then
+            updating all the element from the JSON file"""
 
-        current = self.GUIData()   
+        with open("clientgui.json") as file:
+            current = file.read()
+        new = current
         while self.__Threading:
-            new = self.GUIData()
+            print("Updating GUI...")
+            with open("clientgui.json") as file:
+                new = file.read()
             if current != new:
                 current = new
-                for i in self.UIElements:
-                    i.destroy()
-                self.UIElements.clear()
-                self.__Populate()
+                try:
+                    temp = json.loads(new)
+                    for i in self.UIElements:
+                        i.destroy()
+                    self.UIElements.clear()
+                    self.__Populate()
+                except:
+                    print("JSON file error")
+            time.sleep(0.5)
+
 
     def Shutdown(self, e):
         self.__Threading = False
         self.root.destroy()
-
-    def GUIData(self):
-        with open("clientgui.json") as file:
-            data = json.load(file)
-        return data
     
+    def __Update(self):
+        while self.__Threading:
+            print("Updating widgets...")
+            directories = os.listdir("components")
+            for i in directories:
+                if i[-3:].lower() == ".py":
+                    exec("from components.{} import {}".format(i[:-3], i[:-3]))
+                    exec("{}().Run()".format(i[:-3]))
+            time.sleep(120)    
 
 #Mirror(ScreenWidth, ScreenHeight, BackgroundColour)
 if __name__ == "__main__":

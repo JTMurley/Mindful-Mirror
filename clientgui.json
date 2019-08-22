@@ -1,43 +1,50 @@
 [
     {
-        "type":"label",
-        "text":"Weather",
+        "tag": null,
+        "type": "label",
+        "text": "Weather",
         "font": "Helvetica",
-        "font size":16,
-        "font colour":"white",
-        "x":10,
-        "y":0,
-        "width":0,
-        "height":0
+        "font size": 16,
+        "font colour": "white",
+        "x": 10,
+        "y": 0,
+        "width": 0,
+        "height": 0
     },
     {
-        "type":"label",
-        "text":"Mon",
+        "tag": "weathercurrenttemp",
+        "type": "label",
+        "text": "5.07\u00b0C",
         "font": "Helvetica",
-        "font size":8,
-        "font colour":"white",
-        "x":10,
-        "y":50,
-        "width":0,
-        "height":0
+        "font size": 16,
+        "font colour": "white",
+        "x": 100,
+        "y": 0,
+        "width": 0,
+        "height": 0
     },
     {
-        "type":"button",
-		"text":"Tue",
-		"font": "Helvetica",
-        "font size":8,
-        "font colour":"white",
-        "x":60,
-        "y":50,
-        "width":0,
-        "height":0
+        "tag": "weatherlocation",
+        "type": "label",
+        "text": "Wantirna South",
+        "font": "Helvetica",
+        "font size": 10,
+        "font colour": "cyan",
+        "x": 10,
+        "y": 30,
+        "width": 0,
+        "height": 0
     },
-	{
-		"type":"label",
-		"image":"Test.gif",
-        "x":110,
-        "y":0,
-        "width":0,
-        "height":0
-	}
+    {
+        "tag": null,
+        "type": "label",
+        "text": "Tomorrow",
+        "font": "Helvetica",
+        "font size": 8,
+        "font colour": "white",
+        "x": 10,
+        "y": 60,
+        "width": 0,
+        "height": 0
+    }
 ]
