@@ -34,7 +34,7 @@ class foo:
 from components.foo import foo #<---
 class bar:
     def Run(self):
-        foo.method
+        foo.method()
 ```
 - When using Standard, make sure to run .Commit() to make changes to clientgui.json 
 ```
