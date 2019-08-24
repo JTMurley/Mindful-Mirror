@@ -9,8 +9,10 @@ Enable i2c on RPi
 - Select ```Interfacing Options```
 - Select ```I2C```
 - Select ```Yes```
+
 Install the python3 modules on Prerequisites
 Place wiring as shown:
+
 | Board Pin | Function     |  RPi Pin | RPi Function   |
 |-----------|--------------|----------|----------------|
 | GND       | Ground       |  P01-9   | GND
@@ -18,6 +20,7 @@ Place wiring as shown:
 | SDA       | Data         |  P01-3   | I2C1 SDA
 | SCL       | Clock        |  P01-5   | I2C1 SCL
 | INT       | Interrupt    |  P01-7   | GPIO 4
+
 Clone the git repository and launch client.py
 
 ### Prerequisites
