@@ -25,7 +25,7 @@ class Mirror():
         root.geometry(str(self.ScreenWidth)+"x"+str(self.ScreenHeight))
         root.resizable(width = FALSE, height = FALSE)
         root.config(bg = self.BackgroundColour) #Set background
-        root.config(cursor = "None") #Remove cursor
+        root.config(cursor = "none") #Remove cursor
         root.bind("<Escape>", self.Shutdown) #binds ESC key to shut down mirror
         root.wm_attributes("-fullscreen", "true") #remove title bar
         self.__Populate()

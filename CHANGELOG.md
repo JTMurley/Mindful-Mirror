@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Changed to fullscreen instead of overridedirect to allow ALT+F4 to close
+- Changed cursor remove method for use in linux system
 
 ### Removed
 - print statement on code
