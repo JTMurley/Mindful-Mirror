@@ -4,10 +4,12 @@ All notable changes to this project will be documented in this file.
 ## [0.1.1] - 2019-08-25
 ### Added
 - Shebang line for linux (Python 3)
+- Basic functionality for gesture sensor (swipe up to remove, swipe down to show)
 
 ### Changed
 - Changed to fullscreen instead of overridedirect to allow ALT+F4 to close
 - Changed cursor remove method for use in linux system
+- Updated README.md
 
 ### Removed
 - print statement on code

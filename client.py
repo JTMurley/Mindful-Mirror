@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 
+DEBUGFROMWINDOWS = True
+
 from tkinter import *
 import json
 import threading
 import time
 import sys
 import os
+
+if DEBUGFROMWINDOWS == False:
+    from apds9960.const import *
+    from apds9960 import APDS9960
+    import RPi.GPIO as GPIO
+    import smbus
 
 class Mirror():
     """UI for the mirror"""
@@ -29,7 +37,29 @@ class Mirror():
         root.bind("<Escape>", self.Shutdown) #binds ESC key to shut down mirror
         root.wm_attributes("-fullscreen", "true") #remove title bar
         self.__Populate()
-        self.__ThreadList.append(threading.Thread(target=self.__UpdateGUI, daemon=True))
+        if DEBUGFROMWINDOWS == False:
+            port = 1
+            bus = smbus.SMBus(port)
+            self.apds = APDS9960(bus)
+            GPIO.setmode(GPIO.BOARD)
+            GPIO.setup(7, GPIO.IN)
+            self.dirs = {APDS9960_DIR_NONE: "none",
+                    APDS9960_DIR_LEFT: "left",
+                    APDS9960_DIR_RIGHT: "right",
+                    APDS9960_DIR_UP: "up",
+                    APDS9960_DIR_DOWN: "down",
+                    APDS9960_DIR_NEAR: "near",
+                    APDS9960_DIR_FAR: "far"}
+            try:
+                # Interrupt-Event hinzufuegen, steigende Flanke
+                GPIO.add_event_detect(7, GPIO.FALLING, callback = self.__intH)
+                self.apds.setProximityIntLowThreshold(50)
+                print("Gesture Test")
+                print("============")
+                self.apds.enableGestureSensor()
+            finally:
+                pass
+        self.__ThreadList.append(threading.Thread(target=self.__Sense, daemon=True))
         self.__ThreadList.append(threading.Thread(target=self.__Update, daemon=True))
         for i in self.__ThreadList:
             i.start()
@@ -74,14 +104,27 @@ class Mirror():
             item.place(x = x, y = y)
             self.UIElements.append(item)
 
-    def __UpdateGUI(self):
-        """Check if there are any change in the JSON file and then
-            updating all the element from the JSON file"""
+    def Shutdown(self, e):
+        if DEBUGFROMWINDOWS == False:
+            GPIO.cleanup()
+        self.__Threading = False
+        self.root.destroy()
+
+    
+    def __Update(self):
+        """ Update GUI and Runs .Run() function from each library in /component"""
 
         with open("clientgui.json") as file:
             current = file.read()
         new = current
         while self.__Threading:
+            #.Run() for every library
+            directories = os.listdir("components")
+            for i in directories:
+                if i[-3:].lower() == ".py":
+                    exec("from components.{} import {}".format(i[:-3], i[:-3]))
+                    exec("{}().Run()".format(i[:-3]))
+            #update GUI
             with open("clientgui.json") as file:
                 new = file.read()
             if current != new:
@@ -94,21 +137,27 @@ class Mirror():
                     self.__Populate()
                 except:
                     print("JSON file error")
+            time.sleep(120)  
+
+    def __Sense(self):
+        print("Start")
+        while self.__Threading and DEBUGFROMWINDOWS==False:
             time.sleep(0.5)
-
-
-    def Shutdown(self, e):
-        self.__Threading = False
-        self.root.destroy()
+            if self.apds.isGestureAvailable():
+                motion = self.apds.readGesture()
+                #print("Gesture={}".format(self.dirs.get(motion, "unknown")))
+                if self.dirs.get(motion) == "up":
+                    for i in self.UIElements:
+                        i.destroy()
+                    self.UIElements.clear()
+                elif self.dirs.get(motion) == "down":
+                    self.__Populate()
     
-    def __Update(self):
-        while self.__Threading:
-            directories = os.listdir("components")
-            for i in directories:
-                if i[-3:].lower() == ".py":
-                    exec("from components.{} import {}".format(i[:-3], i[:-3]))
-                    exec("{}().Run()".format(i[:-3]))
-            time.sleep(120)    
+    def __intH(self, channel):
+        print("INTERRUPT")
+
+
+
 
 #Mirror(ScreenWidth, ScreenHeight, BackgroundColour)
 if __name__ == "__main__":

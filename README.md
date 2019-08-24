@@ -4,12 +4,29 @@ Project for SIT312 System Design and Prototyping @ Deakin
 
 ## Getting Started
 
+Enable i2c on RPi
+- Run ```sudo raspi-config```
+- Select ```Interfacing Options```
+- Select ```I2C```
+- Select ```Yes```
+Install the python3 modules on Prerequisites
+Place wiring as shown:
+| Board Pin | Function     |  RPi Pin | RPi Function   |
+|-----------|--------------|----------|----------------|
+| GND       | Ground       |  P01-9   | GND
+| VCC       | +3.3V        |  P01-1   | 3.3V PWR
+| SDA       | Data         |  P01-3   | I2C1 SDA
+| SCL       | Clock        |  P01-5   | I2C1 SCL
+| INT       | Interrupt    |  P01-7   | GPIO 4
 Clone the git repository and launch client.py
 
 ### Prerequisites
 
 - Python 3.x
 - Raspberry Pi
+- pip3 for Rpi
+- apds9960 module for RPi python3
+- smbus module for RPi python3
 
 ## Build your own module
 
@@ -52,3 +69,4 @@ Standard().Commit()
 
 * OpenWeatherMap
 * NewsAPI
+* liske for the [python-apds9960](https://github.com/liske/python-apds9960)
