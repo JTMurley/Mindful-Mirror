@@ -11,6 +11,7 @@ Enable i2c on RPi
 - Select ```Yes```
 
 Install the python3 modules on Prerequisites
+
 Place wiring as shown:
 
 | Board Pin | Function     |  RPi Pin | RPi Function   |
