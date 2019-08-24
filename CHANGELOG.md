@@ -1,6 +1,16 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2019-08-25
+### Added
+- Shebang line for linux (Python 3)
+
+### Changed
+- Changed to fullscreen instead of overridedirect to allow ALT+F4 to close
+
+### Removed
+- print statement on code
+
 ## [0.1.0] - 2019-08-23
 ### Added
 - Added README.md

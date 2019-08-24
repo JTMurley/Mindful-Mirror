@@ -25,9 +25,9 @@ class Mirror():
         root.geometry(str(self.ScreenWidth)+"x"+str(self.ScreenHeight))
         root.resizable(width = FALSE, height = FALSE)
         root.config(bg = self.BackgroundColour) #Set background
-        #root.config(cursor = "None") #Remove cursor
+        root.config(cursor = "None") #Remove cursor
         root.bind("<Escape>", self.Shutdown) #binds ESC key to shut down mirror
-        root.overrideredirect(True) #remove title bar
+        root.wm_attributes("-fullscreen", "true") #remove title bar
         self.__Populate()
         self.__ThreadList.append(threading.Thread(target=self.__UpdateGUI, daemon=True))
         self.__ThreadList.append(threading.Thread(target=self.__Update, daemon=True))
@@ -82,7 +82,6 @@ class Mirror():
             current = file.read()
         new = current
         while self.__Threading:
-            print("Updating GUI...")
             with open("clientgui.json") as file:
                 new = file.read()
             if current != new:
@@ -104,7 +103,6 @@ class Mirror():
     
     def __Update(self):
         while self.__Threading:
-            print("Updating widgets...")
             directories = os.listdir("components")
             for i in directories:
                 if i[-3:].lower() == ".py":
