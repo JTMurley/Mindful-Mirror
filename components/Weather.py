@@ -2,6 +2,7 @@
 
 from urllib.request import urlopen
 import json
+import configparser
 
 if __name__ != "__main__":
     from components.Standard import Standard
@@ -12,7 +13,7 @@ class Weather():
     This class uses API from OpenWeatherMap.org to obtain the weather information.
     The information is presented in dict format.
     """
-    
+
     Data = None #dict
     APIKey = None #string
     CityID = None #string
@@ -58,18 +59,22 @@ class Weather():
 
     def Run(self):
         """Run function for the mirror"""
-        self.APIKey = "fe567241f2e7dae1e8bd917c752f84f9"
+        config = configparser.ConfigParser()
+        config.read("components/configuration.ini")
+        self.APIKey = config["Weather"]["APIKey"]
         self.CityID = "2144728"
         self.CityName = "wantirna south"
         self.GetWeatherByID()
         standard = Standard()
         standard.UpdateTextByTag("weathercurrenttemp", str(self.Data["main"]["temp"])+"°C")
         standard.UpdateTextByTag("weatherlocation", str(self.Data["name"]))
+        standard.UpdateTextByTag("weathermintemp", str(self.Data["main"]["temp_min"])+"°C")
+        standard.UpdateTextByTag("weathermaxtemp", str(self.Data["main"]["temp_max"])+"°C")
         standard.Commit()
 
 if __name__ == "__main__":
     APIKey = "fe567241f2e7dae1e8bd917c752f84f9"
     cityid = "2144728"
     cityname = "wantirna south"
-    a = Weather(api_key=APIKey, city_id= cityid)
+    a = Weather(api_key= APIKey,city_id= cityid)
     print(a.GetWeatherByID())

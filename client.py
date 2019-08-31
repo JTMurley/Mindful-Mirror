@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-DEBUGFROMWINDOWS = True
+DEBUGFROMWINDOWS = True #Disable GPIO and sensors library
+DEBUG = True #Print log
 
 from tkinter import *
 import json
@@ -68,6 +69,7 @@ class Mirror():
     def __Populate(self):
         """Populating elements inside the Tkinter GUI with clientgui.JSON"""
 
+        if DEBUG == True: print("Starting to populate GUI items")
         with open("clientgui.json") as file:
             data = json.load(file)
         for i in data:
@@ -84,7 +86,9 @@ class Mirror():
                 item = Label(self.root,
                              width = i["width"],
                              height = i["height"],
-                             bg=self.BackgroundColour)
+                             bg=self.BackgroundColour, 
+                             anchor=W, 
+                             justify=LEFT)
             elif i["type"] == "button":
                 item = Button(self.root,
                               width = i["width"],
@@ -103,6 +107,7 @@ class Mirror():
                 item.image = photo
             item.place(x = x, y = y)
             self.UIElements.append(item)
+        if DEBUG == True: print("Finish populating GUI items")
 
     def Shutdown(self, e):
         if DEBUGFROMWINDOWS == False:
@@ -118,6 +123,7 @@ class Mirror():
             current = file.read()
         new = current
         while self.__Threading:
+            if DEBUG == True: print("Start .Run()")
             #.Run() for every library
             directories = os.listdir("components")
             for i in directories:
@@ -136,16 +142,18 @@ class Mirror():
                     self.UIElements.clear()
                     self.__Populate()
                 except:
-                    print("JSON file error")
+                    if DEBUG == True: 
+                        print("JSON file error")
+                    else: 
+                        self.Shutdown(1)
             time.sleep(120)  
 
     def __Sense(self):
-        print("Start")
         while self.__Threading and DEBUGFROMWINDOWS==False:
             time.sleep(0.5)
             if self.apds.isGestureAvailable():
                 motion = self.apds.readGesture()
-                #print("Gesture={}".format(self.dirs.get(motion, "unknown")))
+                if DEBUG == True: print("Gesture={}".format(self.dirs.get(motion, "unknown")))
                 if self.dirs.get(motion) == "up":
                     for i in self.UIElements:
                         i.destroy()
@@ -154,7 +162,7 @@ class Mirror():
                     self.__Populate()
     
     def __intH(self, channel):
-        print("INTERRUPT")
+        if DEBUG == True: print("INTERRUPT")
 
 
 

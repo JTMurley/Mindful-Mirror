@@ -98,6 +98,34 @@ class Standard:
             if i["tag"] == tag:
                 return True
         return False
+    
+    def FormatSentence(self, sentence, max_letter):
+        """Format sentence by automatically adding \"-\" or a whitespace"""
+        
+        final = []
+        placeholder = ""
+        text = sentence.split(" ")
+        for words in text:
+            if len(words) > max_letter:
+                full = []
+                temp = ""
+                for letters in words:
+                    if len(temp) + len(letters) + 1 < 10:
+                        temp += letters
+                    else:
+                        temp += "-"
+                        full.append(temp)
+                        temp = letters
+                full.append(temp)
+                final.append("\n".join(full))
+            elif len(words) + len(placeholder) - 1 <= max_letter:
+                    placeholder += words+" "
+            else:
+                final.append(placeholder)
+                placeholder = words+" "
+        final.append(placeholder)
+        final = "\n".join(final)
+        return final
 
 
 if __name__ == "__main__":
