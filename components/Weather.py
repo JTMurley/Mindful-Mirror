@@ -46,7 +46,9 @@ class Weather():
             self.Data = json.loads(response)
             self._UpdateInformation(self.Data)
             return self.Data
-        
+    
+    def RunSpecial(self):
+        pass
     def _UpdateInformation(self, data):
         """Upates all the variable in the class based on self.Data"""
 

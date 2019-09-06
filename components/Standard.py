@@ -9,6 +9,12 @@ class Standard:
         else:
             with open("clientgui.json") as file:
                 self.Data = json.load(file)
+    
+    def RunSpecial(self):
+        pass
+    
+    def Run(self):
+        pass
 
     def UpdateTextByTag(self, tag, text):
         for n, i in enumerate(self.Data):

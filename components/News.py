@@ -14,7 +14,8 @@ class News:
     def __init__(self, api_key = None, country_code = None):
         self.APIKey = api_key
         self.CountryCode = country_code
-    
+    def RunSpecial(self):
+        pass    
     def GetNews(self):
         """Get news from newsapi.org"""
         if self.APIKey == None or self.CountryCode == None:

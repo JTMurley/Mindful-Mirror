@@ -1,20 +1,32 @@
 [
     {
-        "tag": null,
+        "tag": "timecurrenttime",
         "type": "label",
-        "text": "Weather",
+        "text": "4:20 PM",
         "font": "Helvetica",
-        "font size": 16,
-        "font colour": "white",
+        "font size": 64,
+        "font colour": "VioletRed1",
         "x": 10,
         "y": 0,
         "width": 0,
         "height": 0
     },
     {
+        "tag": "timecurrentdate",
+        "type": "label",
+        "text": "20 April 2019",
+        "font": "Helvetica",
+        "font size": 32,
+        "font colour": "VioletRed1",
+        "x": 10,
+        "y": 100,
+        "width": 0,
+        "height": 0
+    },
+    {
         "tag": "weathercurrenttemp",
         "type": "label",
-        "text": "69.69\u00b0C",
+        "text": "04.20\u00b0C",
         "font": "Helvetica",
         "font size": 16,
         "font colour": "white",
@@ -26,7 +38,7 @@
     {
         "tag": "weatherlocation",
         "type": "label",
-        "text": "123 Street St",
+        "text": "Wantirna South",
         "font": "Helvetica",
         "font size": 10,
         "font colour": "cyan",
@@ -50,7 +62,7 @@
     {
         "tag": "weathermintemp",
         "type": "label",
-        "text": "69.69\u00b0C",
+        "text": "04.20\u00b0C",
         "font": "Helvetica",
         "font size": 8,
         "font colour": "white",
@@ -74,7 +86,7 @@
     {
         "tag": "weathermaxtemp",
         "type": "label",
-        "text": "69.69\u00b0C",
+        "text": "04.20\u00b0C",
         "font": "Helvetica",
         "font size": 8,
         "font colour": "white",
@@ -98,7 +110,7 @@
     {
         "tag": "newsarticle1",
         "type": "label",
-        "text": "Test news article 1",
+        "text": "420 strikes again",
         "font": "Helvetica",
         "font size": 8,
         "font colour": "white",

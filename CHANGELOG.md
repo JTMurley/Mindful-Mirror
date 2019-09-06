@@ -1,6 +1,12 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2019-09-05
+### Added
+- Time module
+- RunSpecial runs every 10 seconds on a new thread for time sentsitive module
+- Added Run and RunSpecial to every module
+
 ## [0.1.1] - 2019-09-01
 ### Added
 - SentenceFormat for Standard module. This automatically adds a new line and "-" for long sentences

@@ -62,6 +62,7 @@ class Mirror():
                 pass
         self.__ThreadList.append(threading.Thread(target=self.__Sense, daemon=True))
         self.__ThreadList.append(threading.Thread(target=self.__Update, daemon=True))
+        self.__ThreadList.append(threading.Thread(target=self.__UpdateSpecial, daemon=True))
         for i in self.__ThreadList:
             i.start()
         root.mainloop()
@@ -147,6 +148,41 @@ class Mirror():
                     else: 
                         self.Shutdown(1)
             time.sleep(120)  
+    
+    def __UpdateSpecial(self):
+        """ Update GUI and Runs .Run() function from each library in /component"""
+
+        with open("clientgui.json") as file:
+            current = file.read()
+        new = current
+        while self.__Threading:
+            if DEBUG == True: print("Start .RunSpecial()")
+            #.Run() for every library
+            directories = os.listdir("components")
+            for i in directories:
+                if i[-3:].lower() == ".py":
+                    exec("from components.{} import {}".format(i[:-3], i[:-3]))
+                    try:
+                        exec("{}().RunSpecial()".format(i[:-3]))
+                    except:
+                        print("No RunSpecial for module {}".format(i[:-3]))
+            #update GUI
+            with open("clientgui.json") as file:
+                new = file.read()
+            if current != new:
+                current = new
+                try:
+                    temp = json.loads(new)
+                    for i in self.UIElements:
+                        i.destroy()
+                    self.UIElements.clear()
+                    self.__Populate()
+                except:
+                    if DEBUG == True: 
+                        print("JSON file error")
+                    else: 
+                        self.Shutdown(1)
+            time.sleep(10)  
 
     def __Sense(self):
         while self.__Threading and DEBUGFROMWINDOWS==False:
