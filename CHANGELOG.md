@@ -1,7 +1,7 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
-## [0.1.2] - 2019-09-09
+## [0.1.3] - 2019-09-09
 ### Added
 - Icons implementation in Weather module
 - UpdateImageByTag() method in Standard module
