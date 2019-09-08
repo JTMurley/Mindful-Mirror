@@ -56,6 +56,11 @@ class Standard:
         for n, i in enumerate(self.Data):
             if i["tag"] == tag:
                 self.Data[n]["height"] = text
+    
+    def UpdateImageByTag(self, tag, image_location):
+        for n, i in enumerate(self.Data):
+            if i["tag"] == tag:
+                self.Data[n]["image"] = image_location
 
     def Commit(self):
         if __name__ == "__main__":
@@ -64,6 +69,14 @@ class Standard:
         else:
             with open("clientgui.json","w") as file:
                 json.dump(self.Data, file)
+    
+    def GetTextByTag(self, tag):
+        for n, i in enumerate(self.Data):
+            if i["tag"] == tag:
+                if "text" in i:
+                    return i["text"]
+                else:
+                    return None
 
     def AddLabelWithText(self, tag = None, text = None, font = "Helvetica", font_size = 8, font_colour = "white", x = 0, y = 0, width = 0, height = 0):
         data = {"tag":tag,

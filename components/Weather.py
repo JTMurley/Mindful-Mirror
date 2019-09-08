@@ -49,6 +49,7 @@ class Weather():
     
     def RunSpecial(self):
         pass
+
     def _UpdateInformation(self, data):
         """Upates all the variable in the class based on self.Data"""
 
@@ -72,6 +73,12 @@ class Weather():
         standard.UpdateTextByTag("weatherlocation", str(self.Data["name"]))
         standard.UpdateTextByTag("weathermintemp", str(self.Data["main"]["temp_min"])+"°C")
         standard.UpdateTextByTag("weathermaxtemp", str(self.Data["main"]["temp_max"])+"°C")
+
+        try:
+            standard.UpdateImageByTag("weathericon", "components/weathericons/{}.gif".format(self.Data["weather"][0]["main"]))
+        except:
+            standard.UpdateImageByTag("weathericon", "components/weathericons/Blank.gif")
+        
         standard.Commit()
 
 if __name__ == "__main__":

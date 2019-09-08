@@ -104,6 +104,10 @@ class Mirror():
                             fg=i["font colour"])
             elif "image" in i:
                 photo = PhotoImage(file = i["image"])
+                if "zoom" in i:
+                    photo = photo.zoom(i["zoom"])
+                if "subsample" in i:
+                    photo = photo.subsample(i["subsample"])
                 item.config(image = photo)
                 item.image = photo
             item.place(x = x, y = y)

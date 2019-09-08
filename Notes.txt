@@ -11,3 +11,25 @@ newsapi api key: c3766bcb72d847699e339f3dd0181c1a
     - When including other modules in .Run(), make the path as you would coding from root folder
         e.g. Instead of using "import test" if "test.py" is in the same folder, use "from components import test"
     - When using Standard, make sure to run .Commit() to make changes to clientgui.json 
+
+
+- Weather icons
+    MUST:
+    Thunderstorm --
+    Drizzle
+    Rain --
+    Snow --
+    Clear --
+    Clouds --
+
+    OPTIONAL:
+    Mist
+    Smoke
+    Haze
+    Dust
+    Fog --
+    Sand
+    Dust
+    Ash
+    Squall
+    Tornado
