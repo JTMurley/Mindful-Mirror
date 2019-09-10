@@ -96,7 +96,13 @@ class Mirror():
                               height = i["height"],
                               bg=self.BackgroundColour)
                               #relief="flat")
-            
+            elif i["type"] == "image":
+                item = Label(self.root,
+                             width = i["width"],
+                             height = i["height"],
+                             bg=self.BackgroundColour, 
+                             anchor=W, 
+                             justify=LEFT)
             #contain constructor
             if "text" in i:
                 item.config(text = i["text"],

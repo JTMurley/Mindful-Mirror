@@ -44,4 +44,4 @@ if __name__ == "__main__":
     APIKey = "c3766bcb72d847699e339f3dd0181c1a"
     main = News(api_key=APIKey,country_code="au")
     main.GetNews()
-    print(main.Data["articles"][0]["title"])
+    print(main.Data["articles"])

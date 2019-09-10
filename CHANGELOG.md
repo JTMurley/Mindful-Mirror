@@ -1,6 +1,18 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2019-09-10
+### Added
+- Reminder module
+- Daily weather (4 days ahead) on Weather module
+
+### Changed
+- Weather icon now display moon icon instead of sun icon when the weather is clear and when it is in between 8PM to 8AM
+
+### Bug Fix
+- Fixed type image bug where item was referenced before created
+- Fixed bug where 12AM is shown as 0AM
+
 ## [0.1.3] - 2019-09-09
 ### Added
 - Icons implementation in Weather module
@@ -9,6 +21,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Renamed some weather icon to make programming much easier
+- Changed full month (September) to shorter month (Sep)
 
 ### Removed
 - Placeholder test.gif

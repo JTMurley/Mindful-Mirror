@@ -9,10 +9,13 @@ class Time():
 
     def RunSpecial(self):
         standard = Standard()
-        result = "{}:{} {}".format(self.HourTwelve(),self.Minute(),self.AmPm())
-        standard.UpdateTextByTag("timecurrenttime", result)
-        result = "{} {} {}".format(self.Day(),self.MonthWord(),self.Year())
-        standard.UpdateTextByTag("timecurrentdate", result)
+        if self.HourTwelve() == "0":
+            time = "{}:{} {}".format("12",self.Minute(),self.AmPm())
+        else:
+            time = "{}:{} {}".format(self.HourTwelve(),self.Minute(),self.AmPm())
+        standard.UpdateTextByTag("timecurrenttime", time)
+        date = "{} {} {}".format(self.Day(),self.MonthWord(),self.Year())
+        standard.UpdateTextByTag("timecurrentdate", date)
         standard.Commit()
 
     def Now(self):
@@ -53,7 +56,7 @@ class Time():
         return self._FormatText(month)
     
     def MonthWord(self):
-        return self.__Now.strftime("%B")
+        return self.__Now.strftime("%b")
     
     def Day(self):
         """Get the current day in string"""
