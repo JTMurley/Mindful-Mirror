@@ -1,7 +1,7 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
-## [0.2.1] - 2019-09-12
+## [0.2.1] - 2019-09-11
 ### Removed
 - Today's min and max temperature
 - weather location
