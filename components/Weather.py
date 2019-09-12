@@ -75,15 +75,15 @@ class Weather():
         self.CityName = "wantirna south"
         self.GetWeatherByID()
         standard = Standard()
-        standard.UpdateTextByTag("weathercurrenttemp", str(self.Data["weather"]["main"]["temp"])+"°C")
-        standard.UpdateTextByTag("weatherlocation", str(self.Data["weather"]["name"]))
-        #standard.UpdateTextByTag("weathermintemp", str(self.Data["weather"]["main"]["temp_min"])+"°C")
-        #standard.UpdateTextByTag("weathermaxtemp", str(self.Data["weather"]["main"]["temp_max"])+"°C")
+        standard.UpdateTextByTag("weathercurrenttemp", str(int(self.Data["weather"]["main"]["temp"]))+"°C")
         try:
-            if self.Data["weather"]["weather"][0]["main"] == "Clear" and datetime.datetime.now().hour >= 8 and datetime.datetime.now().hour <= 20:
-                standard.UpdateImageByTag("weathericon", "components/weathericons/{}.gif".format(self.Data["weather"]["weather"][0]["main"]))
+            if self.Data["weather"]["weather"][0]["main"] == "Clear":
+                if datetime.datetime.now().hour >= 8 and datetime.datetime.now().hour <= 20:
+                    standard.UpdateImageByTag("weathericon", "components/weathericons/Clear.gif")
+                else:
+                    standard.UpdateImageByTag("weathericon", "components/weathericons/Moon.gif")
             else:
-                standard.UpdateImageByTag("weathericon", "components/weathericons/Moon.gif".format(self.Data["weather"]["weather"][0]["main"]))
+                standard.UpdateImageByTag("weathericon", "components/weathericons/{}.gif".format(self.Data["weather"]["weather"][0]["main"]))
         except:
             standard.UpdateImageByTag("weathericon", "components/weathericons/Blank.gif")
         #Forecast
@@ -119,6 +119,7 @@ class Weather():
             except:
                 standard.UpdateImageByTag("weatherforecasticon{}".format(counticon), "components/weathericons/Blank.gif")
         text = ""
+        result.pop(0)
         for i in result:
             text += "{}°C - {}°C\n".format(i[0], i[1])
         standard.UpdateTextByTag("weatherforecasttemperature", text)
@@ -160,4 +161,8 @@ if __name__ == "__main__":
     a = Weather(api_key= APIKey,city_id= cityid)
     a.GetForecastByID()
     a.GetWeatherByID()
-    print(a.Data)
+    for i in a.Data["forecast"]["list"]:
+        print(datetime.datetime.fromtimestamp(i["dt"]).strftime("%a"))
+        print("Min: {}".format(i["main"]["temp_min"]))
+        print("Max: {}".format(i["main"]["temp_max"]))
+        print()

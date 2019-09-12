@@ -1,6 +1,15 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
+## [0.2.1] - 2019-09-12
+### Removed
+- Today's min and max temperature
+- weather location
+
+## [0.2.0] - 2019-09-10
+### Bug Fix
+- Fix daily weather bug where it display 1 day later
+
 ## [0.2.0] - 2019-09-10
 ### Added
 - Reminder module

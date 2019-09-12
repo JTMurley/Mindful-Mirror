@@ -35,8 +35,10 @@ class News:
         self.GetNews()
         standard = Standard()
         self.GetNews()
-        article = self.Data["articles"][0]["title"]
-        standard.UpdateTextByTag("newsarticle1", standard.FormatSentence(self.Data["articles"][0]["title"], 20))
+        text = ""
+        for i in range(0,5):
+            text += "- {}\n\n".format(standard.FormatSentence(self.Data["articles"][i]["title"], 35))
+        standard.UpdateTextByTag("newstitle", text)
         standard.Commit()
 
 if __name__ == "__main__":
@@ -44,4 +46,5 @@ if __name__ == "__main__":
     APIKey = "c3766bcb72d847699e339f3dd0181c1a"
     main = News(api_key=APIKey,country_code="au")
     main.GetNews()
-    print(main.Data["articles"])
+    print(main.Data)
+        

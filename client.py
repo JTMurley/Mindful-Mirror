@@ -22,6 +22,7 @@ class Mirror():
     UIElements = [] #list
     __Threading = True
     __ThreadList = [] #list
+    if DEBUGFROMWINDOWS == True: __ShowGUI = True
 
     def __init__(self, screenWidth = None, screenHeight = None, backgroundColour = "black"):
         self.ScreenWidth = screenWidth #int
@@ -65,6 +66,7 @@ class Mirror():
         self.__ThreadList.append(threading.Thread(target=self.__UpdateSpecial, daemon=True))
         for i in self.__ThreadList:
             i.start()
+        if DEBUGFROMWINDOWS == True: root.bind("<Return>", self.__DebugTestGUI)
         root.mainloop()
     
     def __Populate(self):
@@ -206,6 +208,15 @@ class Mirror():
                     self.UIElements.clear()
                 elif self.dirs.get(motion) == "down":
                     self.__Populate()
+    
+    def __DebugTestGUI(self, event):
+        if self.__ShowGUI == True:
+            for i in self.UIElements:
+                i.destroy()
+            self.__ShowGUI = False
+        else:
+            self.__Populate()
+            self.__ShowGUI = True
     
     def __intH(self, channel):
         if DEBUG == True: print("INTERRUPT")
