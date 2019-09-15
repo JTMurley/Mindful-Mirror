@@ -31,6 +31,8 @@ Clone the git repository and launch client.py
 - pip3 for Rpi
 - apds9960 module for RPi python3
 - smbus module for RPi python3
+- Active internet connection
+- NodeRed set up with a specific cloud Database
 
 ## Build your own module
 
