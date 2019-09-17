@@ -36,7 +36,7 @@ Clone the git repository and launch client.py
 - Active internet connection
 - NodeRed set up with a specific cloud Database
 
-## Build your own module
+## Build your own module :electron:
 
 Adhere to the following rules when trying to build a custom module
 - Place module in components/
