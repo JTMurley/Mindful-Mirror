@@ -1,4 +1,4 @@
-# Smart Mirror/Mindful Mirror
+# Smart Mirror/Mindful Mirror :framed_picture:
 
 Project for SIT312 System Design and Prototyping @ Deakin
 
