@@ -66,19 +66,19 @@ class bar:
 Standard().Commit()
 ```
 
-## Contributors
+## Contributors :bowtie:
 
 * **Jack Murley** - [GitHub](https://github.com/JTMurley)
 * **Kai Zhi Lam** - [GitHub](https://github.com/kaizhilam)
 * **Tristan Skadins**
 * **Kapish Dandona**
 
-## Acknowledgments
+## Acknowledgments :basecamp:
 
 * OpenWeatherMap
 * NewsAPI
 * liske for the [python-apds9960](https://github.com/liske/python-apds9960)
 
-## Trello
+## Trello :place_of_worship:
 
 [Trello](https://trello.com/invite/b/dhC3HB7k/4754cb65c0d6cbff4c509aed8d64d80a/sit312)
