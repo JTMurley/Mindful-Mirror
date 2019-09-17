@@ -1,5 +1,3 @@
-![Farmers Market Finder Demo](https://media.giphy.com/media/47EtjlHYFREM5Rznaf/giphy.gif)
-
 # Smart Mirror/Mindful Mirror
 
 Project for SIT312 System Design and Prototyping @ Deakin
