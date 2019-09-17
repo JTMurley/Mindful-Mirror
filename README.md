@@ -4,7 +4,7 @@ Project for SIT312 System Design and Prototyping @ Deakin
 
 The Mindful Mirror is a open source project aimed at trying to solve not only the cost associated with treating Alzheimer’s disease which is currently the most common form of dementia affecting up to 70% of all people with dementia. However, it also aims to help alleviate the stress that loved one’s face when caring for family members at home or while they are in aged care homes as people with dementia account for 52% of all residents in residential aged care facilities.
 
-## Getting Started/How To Use:grin:
+## Getting Started/How To Use :wink:
 
 Enable i2c on RPi
 - Run ```sudo raspi-config```
@@ -28,7 +28,7 @@ Clone the git repository and launch client.py
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.x :snake:
 - Raspberry Pi
 - pip3 for Rpi
 - apds9960 module for RPi python3
