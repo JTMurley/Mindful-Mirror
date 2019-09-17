@@ -78,3 +78,7 @@ Standard().Commit()
 * OpenWeatherMap
 * NewsAPI
 * liske for the [python-apds9960](https://github.com/liske/python-apds9960)
+
+## Trello
+
+[Trello](https://trello.com/invite/b/dhC3HB7k/4754cb65c0d6cbff4c509aed8d64d80a/sit312)
