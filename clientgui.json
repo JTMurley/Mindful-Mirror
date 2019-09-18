@@ -173,5 +173,53 @@
         "y": 350,
         "width": 0,
         "height": 0
+    },
+    {
+        "tag": "databasename",
+        "type": "label",
+        "text": "Name: Ash",
+        "font": "Helvetica",
+        "font size": 16,
+        "font colour": "white",
+        "x": 10,
+        "y": -300,
+        "width": 0,
+        "height": 0
+    },
+    {
+        "tag": "databaseage",
+        "type": "label",
+        "text": "Age: 10",
+        "font": "Helvetica",
+        "font size": 16,
+        "font colour": "white",
+        "x": 10,
+        "y": -275,
+        "width": 0,
+        "height": 0
+    },
+    {
+        "tag": "databasenurse",
+        "type": "label",
+        "text": "Nurse: Nurse Joyce",
+        "font": "Helvetica",
+        "font size": 16,
+        "font colour": "white",
+        "x": 10,
+        "y": -250,
+        "width": 0,
+        "height": 0
+    },
+    {
+        "tag": "databasemedication",
+        "type": "label",
+        "text": "Medication: Pokemon trainer",
+        "font": "Helvetica",
+        "font size": 16,
+        "font colour": "white",
+        "x": 10,
+        "y": -225,
+        "width": 0,
+        "height": 0
     }
 ]
