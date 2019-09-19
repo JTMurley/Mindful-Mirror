@@ -74,7 +74,7 @@ In order to send and recieve data you simply just need to set a GET or POST requ
 
 * GET (Returns all users in the database) - https://sit312-mirror.mybluemix.net/api/user/getUsers
 * POST (Add's a user to the database) - https://sit312-mirror.mybluemix.net/api/user/register
-* GET specific user (We use the unique user ID to get a specific user) - https://sit312-mirror.mybluemix.net/api/user/getSpecUsers?_id=UserID
+* GET, specific user (We use the unique user ID to get a specific user) - https://sit312-mirror.mybluemix.net/api/user/getSpecUsers?_id=UserID
 
 ## Contributors :bowtie:
 
