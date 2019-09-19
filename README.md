@@ -1,6 +1,8 @@
 # Smart Mirror/Mindful Mirror :framed_picture:
 
 ![Prdoject Demo](https://media.giphy.com/media/fVDgnePD8hthkOP6d0/giphy.gif)
+![Robot Dancing](https://media.giphy.com/media/47EtjlHYFREM5Rznaf/giphy.gif)
+![Robot Dancing](https://media.giphy.com/media/47EtjlHYFREM5Rznaf/giphy.gif)
 
 
 
