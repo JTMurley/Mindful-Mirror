@@ -1,6 +1,6 @@
 # Smart Mirror/Mindful Mirror :framed_picture:
 
-![Project Demo](https://giphy.com/gifs/kIA6kZWhqujGyz1k05)
+![Project Demo](https://media.giphy.com/media/kIA6kZWhqujGyz1k05/giphy.gif)
 
 Project for SIT312 System Design and Prototyping @ Deakin
 
