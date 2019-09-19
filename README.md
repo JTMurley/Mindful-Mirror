@@ -1,6 +1,6 @@
 # Smart Mirror/Mindful Mirror :framed_picture:
 
-![Prdoject Demo](https://media.giphy.com/media/fVDgnePD8hthkOP6d0/giphy.gif)
+![ProjectDemo](https://media.giphy.com/media/fVDgnePD8hthkOP6d0/giphy.gif)
 
 
 
