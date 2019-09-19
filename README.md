@@ -68,7 +68,7 @@ Standard().Commit()
 ```
 
 
-## Sending and Receiving Data
+## Sending and Receiving Data :file_folder:
 
 In order to send and recieve data you simply just need to set a GET or POST request to the database. The following commands built into the database are the following:
 
@@ -89,6 +89,6 @@ In order to send and recieve data you simply just need to set a GET or POST requ
 * NewsAPI
 * liske for the [python-apds9960](https://github.com/liske/python-apds9960)
 
-## Trello :place_of_worship:
+## Trello :calendar:
 
 [Trello](https://trello.com/invite/b/dhC3HB7k/4754cb65c0d6cbff4c509aed8d64d80a/sit312)
