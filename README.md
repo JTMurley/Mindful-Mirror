@@ -67,6 +67,13 @@ class bar:
 Standard().Commit()
 ```
 
+
+## Sending and Receiving Data
+
+In order to send and recieve data you simply just need to set a GET or POST request to the database. The following commands built into the database are the following:
+
+* GET - https://sit312-mirror.mybluemix.net/api/user/getUsers
+
 ## Contributors :bowtie:
 
 * **Jack Murley** - [GitHub](https://github.com/JTMurley)
