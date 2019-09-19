@@ -29,7 +29,7 @@ Clone the git repository and launch client.py
 ### Prerequisites
 
 - Python 3.x :snake:
-- Raspberry Pi
+- Raspberry Pi (Rpi)
 - pip3 for Rpi
 - apds9960 module for RPi python3
 - smbus module for RPi python3
