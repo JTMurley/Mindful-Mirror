@@ -1,6 +1,6 @@
 # Smart Mirror/Mindful Mirror :framed_picture:
 
-![ProjectDemo](MagicMirror.gif = 250x250)
+![ProjectDemo](MagicMirror.gif)
 
 
 
