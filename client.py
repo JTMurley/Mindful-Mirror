@@ -19,7 +19,7 @@ class Mirror():
     """UI for the mirror"""
 
     UIElements = [] #list
-    __Threading = False
+    __Threading = True
     __ThreadList = [] #list
     if DEBUGFROMWINDOWS == True: __ShowGUI = True
 
