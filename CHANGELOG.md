@@ -1,6 +1,16 @@
 # CHANGELOG
 All notable changes to this project will be documented in this file.
 
+## [0.3.1 - 2019-09-24]
+### Added
+- Left and right gesture on the sensor
+
+### Changed
+- Reminder code acquire from database instead of local text file
+
+### Removed
+- Import sys library on client.py
+
 ## [0.3.0] - 2019-09-11
 ### Added
 - Database module

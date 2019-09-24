@@ -71,8 +71,10 @@ class Weather():
         config = configparser.ConfigParser()
         config.read("components/configuration.ini")
         self.APIKey = config["Weather"]["APIKey"]
-        self.CityID = "2144728"
-        self.CityName = "wantirna south"
+        self.CityID = config["Weather"]["CityID"]
+        self.CityName = config["Weather"]["CityName"]
+        # self.CityID = "2144728"
+        # self.CityName = "wantirna south"
         self.GetWeatherByID()
         standard = Standard()
         standard.UpdateTextByTag("weathercurrenttemp", str(int(self.Data["weather"]["main"]["temp"]))+"°C")
@@ -156,11 +158,11 @@ class Weather():
     
 if __name__ == "__main__":
     APIKey = "fe567241f2e7dae1e8bd917c752f84f9"
-    cityid = "2144728"
-    cityname = "wantirna south"
+    cityid = "7932622"
     a = Weather(api_key= APIKey,city_id= cityid)
     a.GetForecastByID()
     a.GetWeatherByID()
+    print(a.Data["weather"])
     for i in a.Data["forecast"]["list"]:
         print(datetime.datetime.fromtimestamp(i["dt"]).strftime("%a"))
         print("Min: {}".format(i["main"]["temp_min"]))

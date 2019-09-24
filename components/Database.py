@@ -39,9 +39,9 @@ class Database():
 
 if __name__ == "__main__":
     a = Database()
-    data = {"name":"Jack", "age":"20", "Location":"Australia", "Nurse":"Kapish", "Medication":"Dementia"}
+    data = {"name":"John Doe", "age":"60", "Location":"Australia", "Nurse":"Jane Doe", "Medication":"Dementia", "Reminder":"Take medication\nFamily visiting on 12PM today\nTV show at 8:00PM"}
     a.Get()
-    print(a.Data["name"])
+    print(a.Data)
     # a.Post(data)
     # print()
 

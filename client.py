@@ -7,7 +7,6 @@ from tkinter import *
 import json
 import threading
 import time
-import sys
 import os
 
 if DEBUGFROMWINDOWS == False:
@@ -20,7 +19,7 @@ class Mirror():
     """UI for the mirror"""
 
     UIElements = [] #list
-    __Threading = True
+    __Threading = False
     __ThreadList = [] #list
     if DEBUGFROMWINDOWS == True: __ShowGUI = True
 
@@ -202,11 +201,11 @@ class Mirror():
             if self.apds.isGestureAvailable():
                 motion = self.apds.readGesture()
                 if DEBUG == True: print("Gesture={}".format(self.dirs.get(motion, "unknown")))
-                if self.dirs.get(motion) == "up":
+                if self.dirs.get(motion) == "up" or self.dirs.get(motion) == "left":
                     for i in self.UIElements:
                         i.destroy()
                     self.UIElements.clear()
-                elif self.dirs.get(motion) == "down":
+                elif self.dirs.get(motion) == "down" or self.dirs.get(motion) == "right":
                     self.__Populate()
     
     def __DebugTestGUI(self, event):

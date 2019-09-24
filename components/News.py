@@ -31,7 +31,7 @@ class News:
         config = configparser.ConfigParser()
         config.read("components/configuration.ini")
         self.APIKey = config["News"]["APIKey"]
-        self.CountryCode = "au"
+        self.CountryCode = config["News"]["CountryCode"]
         self.GetNews()
         standard = Standard()
         self.GetNews()
