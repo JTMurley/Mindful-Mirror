@@ -97,7 +97,7 @@
     {
         "tag": "weatherforecasttemperature",
         "type": "label",
-        "text": "00\u00b0C - 00\u00b0C\n20\u00b0C - 00\u00b0C\n21\u00b0C - 00\u00b0C\n22\u00b0C - 00\u00b0C",
+        "text": "00\u00b0C - 00\u00b0C\n00\u00b0C - 00\u00b0C\n00\u00b0C - 00\u00b0C\n00\u00b0C - 00\u00b0C",
         "font": "Helvetica",
         "font size": 16,
         "font colour": "white",
