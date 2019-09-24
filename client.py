@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-DEBUGFROMWINDOWS = True #Disable GPIO and sensors library
+DEBUGFROMWINDOWS = False #Disable GPIO and sensors library
 DEBUG = True #Print log
 
 from tkinter import *
