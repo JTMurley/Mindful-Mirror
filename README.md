@@ -3,10 +3,6 @@
 ![ProjectDemo](MagicMirror.gif)
 
 
-
-
-Project for SIT312 System Design and Prototyping @ Deakin
-
 The Mindful Mirror is a open source project aimed at trying to solve not only the cost associated with treating Alzheimer’s disease which is currently the most common form of dementia affecting up to 70% of all people with dementia. However, it also aims to help alleviate the stress that loved one’s face when caring for family members at home or while they are in aged care homes as people with dementia account for 52% of all residents in residential aged care facilities.
 
 ## Getting Started/How To Use :children_crossing:
